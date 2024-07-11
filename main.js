@@ -1,48 +1,68 @@
+// 1. Vilka datatyper finns det i JS? Svara i form av en array.
+let datatypes = [1, 10n, true, 'string', undefined, null, Object(), Symbol()];
 
-// 1 Vilka datatyper finns det i JS? Svara i form av en array.
-
-// 
-// let datatypes = []
-
-
-// 2 Är följande if sats true eller false?
+// 2. Är följande if sats true eller false?
 // 
 // let a = 1;
 // let b = '1';
 // if(a == b) // true or false
 
+// SVAR: 
+// true eftersom att man med en == operator gör typkonversioner för att jämföra.
+// om man däremot använder === blir det false eftersom === kräver att båda sidor är
+// av samma typ.
+let a = 1;
+let b = '1';
+if(a == b){
+    console.log('Yes, a==b is true');
+}
+if(! (a === b)){
+    console.log('No, a===b is not true');
+}
 
-// 3 Vad är den tekniska skillnaden ( förutom var, let ) på dessa två deklarationer?
+// 3. Vad är den tekniska skillnaden ( förutom var, let ) på dessa två deklarationer?
+//     let name = 'Greta Thunberg';
+//     var name = 'Greta Thunberg';
 
-// let name = 'Greta Thunberg';
-// var name = 'Greta Thunberg';
+// SVAR:
+// när 'var'-variabeln "hoistas" kan man komma åt variabelvärdet innan 
+// deklarationen. Sedan om man inte anger var i deklarationen kommer 
+// javascript att leta efter en global variable med samma namn och om
+// inte en sådan finns skapa en ny global variable med det namnet.
+// Detta är nuförtiden inte ett önskvärt beteende och man kan gardera sig
+// mot det genom att declarera 'use strict'; högst upp i .js filen. Till sist
+// så har var inte stöd för block-scope utan bara globalt eller funktionsnivå.
+// om man t. ex. deklarerar en variabel "var b;" inutti en for-loop så kommer man
+// kunna komma åt den efter loopen inom funktionen. En "let b;" variabel har stöd
+// för block-scope så den hade man inte kunnat komma åt.
 
 
 // 4. Hur tar man reda på vad en variabel har för datatyp?
 
+// SVAR: Man använder sig av typeof 
+console.log(typeof "En sträng"); //Skriver ut "string" i terminalen.
 
-// 5 Vilken av följande tecken visar ett kodblock?
+// 5. Vilken av följande tecken visar ett kodblock?
+//     [] // A 
+//     () // B
+//     {} // C
 
-// [] // A 
-// () // B
-// {} // C
+// SVAR: C. A är en array-deklaration alternativt ett element i en array om ett index anges (e.g. enArray[0]) 
+//  B är paranteser somm kan omfånga ett uttryck (expression) men används också i kodsyntax för att t. ex. 
+// omringa if-villkor eller funktionssparametrar.
+
+// 6. Vad i följande kod är blocket som exekveras?
+//     el.on('click', () => {
+//         alert('Ariba!');
+//     }) 
 
 
-// 6 Vad i följande kod är blocket som exekveras?
+// 7. Vad kommer stå i console.log()?
+//     var greeting = 'Good bye world!';
 
-// el.on('click', () => {
-//     alert('Ariba!');
-// }) 
-
-
-// 7
-// Vad kommer stå i console.log()?
-
-// var greeting = 'Good bye world!';
-
-// {
-//     let greeting = 'Hello World';
-// }
+//     {
+//         let greeting = 'Hello World';
+//     }
 
 // 8 Vilken av följande syntax är korrekt sätt att skriva strängar.
 // 

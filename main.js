@@ -138,42 +138,78 @@ for(elem of a){
 console.log(mixedArray);
 
 // 19 Merga in array a i array b på index 2. 
-//     let a = [1,2,7,8,9,10];
-//     let b = [3,4,5,6];
-
+a = [1,2,7,8,9,10];
+b = [3,4,5,6];
+b.splice(2, 0, ...a);
+console.log(b);
 
 // 20 Gör alla namn i array names till versaler.
-//     let names = ['sixten', 'Eva', 'Ali', 'Kim', 'Greger', 'Alicia'];
-
+let names = ['sixten', 'Eva', 'Ali', 'Kim', 'Greger', 'Alicia'];
+let namesUpperCase = names.map( name => name.toUpperCase());
+console.log(namesUpperCase);
 
 // 21 Filtrera fram samtliga personer som är 30 år eller äldre.
-//     let names = [
-//         { name: 'sixten', age: 32 },
-//         { name: 'Eva',    age: 19 }, 
-//         { name: 'Ali',    age: 67 },
-//         { name: 'Kim',    age: 13 },
-//         { name: 'Greger', age: 30 },
-//         { name: 'Alicia', age: 82 }
-//         ];
+names = [
+    { name: 'sixten', age: 32 },
+    { name: 'Eva',    age: 19 }, 
+    { name: 'Ali',    age: 67 },
+    { name: 'Kim',    age: 13 },
+    { name: 'Greger', age: 30 },
+    { name: 'Alicia', age: 82 }
+];
+
+console.log(names.filter(person => person.age >= 30));
 
 
 // 22 Skriv koden för att undersöka om arrayen names innehåller namnet Ewa. Ditt svar ska vara true eller false.
-//     let names = ['sixten', 'Eva', 'Ali', 'Kim', 'Greger', 'Alicia'];
+names = ['sixten', 'Eva', 'Ali', 'Kim', 'Greger', 'Alicia'];
+
+let containsName =  (arr, searchedName) => 
+    arr.filter((name) => name.toLowerCase() == searchedName.toLowerCase()).length >= 1;
+
+console.log(containsName(names, 'Ewa'));
 
 // 23 Skapa en for-loop som itererar 1000 varv. För varje iteration ska du console.log() vilket varv du är på.
+for(let i = 1; i <= 1000; i++)
+    console.log(i);
 
 // 24 Skapa en for-loop som räknar ner från 100 till 0. För varje varv ska du console.log() vilket varv du är på.
+for(let i = 100; i>=0; i--)
+    console.log(i);
 
 // 25 Loopa ut följande array med console.log().
-//     let fruits = ['apple', 'orange', 'pear', 'kiwi', 'pineapple'];
+fruits = ['apple', 'orange', 'pear', 'kiwi', 'pineapple'];
+for(fruit of fruits){
+    console.log(fruit);
+}
 
 // 26 Loopa ut föjande array med console.log(). Sätt vilket index varje frukt har framför. Ex. 0. apple, 1. orange osv.
+for([i, fruit] of fruits.entries()){
+    console.log(`${i}. ${fruit}`);
+}
 
 // 27 Generera en kortlek med 52 kort där varje kort innehåller en färg ( suite ) och ett värde mellan 2 och 14 ( ess ). Ex.
 //     [..., 'hjärter 8', 'hjärter 9', ...]
+const suites = ['ruter', 'hjärter', 'knäckt', 'klöver'];
+let deck = [];
+for(suite of suites){
+    deck.push(`${suite} ess`);
+    for(let rank=2; rank < 11; rank++){
+        deck.push(`${suite} ${rank}`);
+    }
+    deck.push(`${suite} knekt`);
+    deck.push(`${suite} dam`);
+    deck.push(`${suite} kung`);
+}
+console.log(deck);
 
 // 28 Skapa en ett objekt som heter book och som har egenskaperna title, author och genres.
 //     De två första egenskaperna ska vara strängar och den sista en array.
+let book = {
+    book: 'Sagan om Ringen',
+    author: 'J.R.R. Tolkien',
+    genres: ['high fantasy', 'adventure', 'epic fantasy']
+};
 
 // 29 console.log() endast egenskapen city i följande objekt.
 //     let person = {

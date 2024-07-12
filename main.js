@@ -56,13 +56,20 @@ console.log(typeof "En sträng"); //Skriver ut "string" i terminalen.
 //         alert('Ariba!');
 //     }) 
 
+// SVAR: .on är inte en funktion in vanilla-JS utan en jQuery förenkling utav addEventListener, så ingen kod
+// kommer exekveras. Om man istället använt addEventListener hade en anonym funktion bundits till "click"-händelsen
+// på e1 elementet. När man sedan klickar på e1 elementet hade 'Ariba!' visats på skärmen som en alert-box.
+
 
 // 7. Vad kommer stå i console.log()?
 //     var greeting = 'Good bye world!';
-
 //     {
 //         let greeting = 'Hello World';
 //     }
+//     console.log(greeting);
+
+// SVAR: 'Good bye world!', eftersom 'Hello World' deklarationen har scopet inom blocket ({}).
+
 
 // 8 Vilken av följande syntax är korrekt sätt att skriva strängar.
 // 
@@ -70,42 +77,65 @@ console.log(typeof "En sträng"); //Skriver ut "string" i terminalen.
 // 'Hello World' // B
 // `Hello World` // C
 
+// SVAR: Alla är korrekta. Alternativ C skapar dock en template-sträng som man kan använda för
+// att interpolera värden in i strängen mhja. ${}. Om man sedan vill ha citationstecken i sin sträng får man
+// varva mellan ' och ", . ex. "A Poet's Mind".
+
 
 // 9 Räkna antal tecken i strängen nedan.
-
-//     let sentence = "If you're having code problems I feel bad for you son. I got 99 problems, but a glitch ain't one."
+let sentence = "If you're having code problems I feel bad for you son. I got 99 problems, but a glitch ain't one."
+console.log(`Antal tecken: ${sentence.length}`);
 
 // 10 Gör en template string där N ersätts med variabeln name.
-// 
-// let name = '<Ditt namn>' 
-// `Hej N din gamle knasboll!`
+let name = 'Niklas' 
+console.log(`Hej ${name} din gamle knasboll!`);
  
 // 11 Gör en array med 5 frukter i.
+let fruits = ['Banan', 'Äpple', 'Ananas', 'Päron', 'Apelsin'];
 
 // 12 Lägg till en frukt i början och en frukt i slutet på arrayen.
+fruits.unshift('Avocado');
+fruits.push('Satsuma');
+console.log(fruits);
 
 // 13 I ovanstående fruktarray, plocka bort första och sista frukten.
+fruits.shift();
+fruits.pop();
+console.log(fruits);
 
 // 14 I följande array, sätt in två nya frukter på index 2.
-//     let fruits = ['apple', 'orange', 'pear', 'kiwi']
-
+fruits = ['apple', 'orange', 'pear', 'kiwi']
+fruits.splice(2, 0, 'avocado', 'banana');
+console.log(fruits);
 
 // 15 Klona följande array och ändra första frukten till pineapple.
-//     let fruits = ['apple', 'orange', 'pear', 'kiwi']
+fruits = ['apple', 'orange', 'pear', 'kiwi']
+let fruitsCopy = structuredClone(fruits);
+fruitsCopy[0] = 'pineapple';
+console.log(fruits);
+console.log(fruitsCopy);
 
 // 16 Sortera följande array i fallande ordning.
-//     let num = [1,5,78,7,122,3,4,65,40,2,8]
-
+let num = [1,5,78,7,122,3,4,65,40,2,8]
+num.sort ( (a, b) => b-a );
+console.log(num);
 
 // 17 Lägg ihop följande arrayer.
-//     let a = [1,2,3];
-//     let b = [4,5,6];
-
+a = [1,2,3];
+b = [4,5,6];
+let ab = a.concat(b);
+console.log(ab);
 
 // 18 Mixa följande arrayer där varannan är från array a och varanan från array b.
-//     let a = ['My', 'has', 'many', 'open'];
-//     let b = ['brain', 'to', 'tabs', '!'];
-
+a = ['My', 'has', 'many', 'open'];
+b = ['brain', 'to', 'tabs', '!'];
+let mixedArray = [];
+let change = false;
+for(elem of a){
+    mixedArray.push(elem);
+    mixedArray.push(b.shift());
+}
+console.log(mixedArray);
 
 // 19 Merga in array a i array b på index 2. 
 //     let a = [1,2,7,8,9,10];
